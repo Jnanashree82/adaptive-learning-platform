@@ -1,0 +1,80 @@
+/* Text size variations */
+.text-size-small {
+    font-size: 14px;
+}
+
+.text-size-medium {
+    font-size: 16px;
+}
+
+.text-size-large {
+    font-size: 18px;
+}
+
+.text-size-xlarge {
+    font-size: 20px;
+}
+
+/* High contrast mode */
+.high-contrast {
+    --primary-color: #0000ff;
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    background: #ffffff;
+    color: #000000;
+}
+
+.high-contrast .sidebar {
+    background: #000000;
+}
+
+.high-contrast .btn-primary {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+/* Dyslexia-friendly font */
+.dyslexia-font {
+    font-family: 'OpenDyslexic', Arial, sans-serif;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+}
+
+/* Reduced motion */
+.reduced-motion * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+}
+
+/* Focus indicators for keyboard navigation */
+*:focus {
+    outline: 3px solid var(--primary-color) !important;
+    outline-offset: 2px !important;
+}
+
+/* Reading guide */
+.reading-guide {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Tooltips */
+.tooltip {
+    position: fixed;
+    background: var(--dark-bg);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    z-index: 1000;
+    pointer-events: none;
+}

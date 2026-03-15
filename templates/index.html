@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>EasyRead PDF</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header>
+<h1>EasyRead</h1>
+<p>Accessible PDF Reader for Dyslexia & ADHD</p>
+</header>
+
+<div class="container">
+
+<input type="file" id="pdfFile">
+
+<button onclick="uploadPDF()">Upload PDF</button>
+
+<button onclick="readText()">🔊 Read Aloud</button>
+
+<button onclick="toggleFocus()">🎯 Focus Mode</button>
+<h3>Focus Time: <span id="timer">00:00</span></h3>
+<button onclick="startTimer()">Start Reading</button>
+<button onclick="stopTimer()">Stop</button>
+<div id="reader"></div>
+
+<audio id="audioPlayer" controls></audio>
+
+</div>
+
+<script src="/static/script.js">
+</script>
+<script>
+let seconds = 0;
+let timer;
+
+function startTimer(){
+    timer = setInterval(function(){
+        seconds++;
+        let min = Math.floor(seconds/60);
+        let sec = seconds % 60;
+        document.getElementById("timer").innerText =
+            String(min).padStart(2,'0') + ":" + String(sec).padStart(2,'0');
+    },1000);
+}
+
+function stopTimer(){
+    clearInterval(timer);
+}
+</script>
+</body>
+</html>

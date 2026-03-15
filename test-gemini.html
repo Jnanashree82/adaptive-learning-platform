@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List Available Gemini Models</title>
+</head>
+<body>
+    <h2>📋 Available Gemini Models</h2>
+    
+    <div>
+        <label>API Key:</label>
+        <input type="text" id="apiKey" placeholder="Enter your API key" size="50">
+    </div>
+    
+    <button onclick="listModels()">List Available Models</button>
+    
+    <h3>Result:</h3>
+    <pre id="result" style="background:#f4f4f4; padding:15px; border-radius:5px;"></pre>
+    
+    <script>
+    async function listModels() {
+        const apiKey = document.getElementById('apiKey').value.trim();
+        
+        if (!apiKey) {
+            document.getElementById('result').innerHTML = 'Please enter your API key';
+            return;
+        }
+        
+        const url = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`;
+        
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            
+            if (data.models) {
+                let html = '✅ **Available Models:**\n\n';
+                data.models.forEach(model => {
+                    html += `• **${model.name}**\n`;
+                    html += `  Display Name: ${model.displayName}\n`;
+                    html += `  Description: ${model.description}\n`;
+                    html += `  Supported Methods: ${model.supportedGenerationMethods?.join(', ')}\n\n`;
+                });
+                document.getElementById('result').innerHTML = html;
+            } else {
+                document.getElementById('result').innerHTML = JSON.stringify(data, null, 2);
+            }
+        } catch (error) {
+            document.getElementById('result').innerHTML = 'Error: ' + error.message;
+        }
+    }
+    </script>
+</body>
+</html>

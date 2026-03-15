@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Debug</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        button { padding: 10px; margin: 5px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+        pre { background: #f4f4f4; padding: 10px; }
+        #result { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h2>🔧 Chat Debug Tool</h2>
+    
+    <button onclick="testHealth()">Test /health</button>
+    <button onclick="testChat()">Test /chat</button>
+    <button onclick="sendTestMessage()">Send "hello"</button>
+    
+    <div>
+        <input type="text" id="testMessage" placeholder="Enter test message" style="width: 300px; padding: 5px;">
+        <button onclick="sendCustomMessage()">Send</button>
+    </div>
+    
+    <pre id="result">Click a button to test...</pre>
+     <!-- Voice Agent -->
+<script src="js/voice-agent.js"></script>
+    <script>
+        async function testHealth() {
+            const result = document.getElementById('result');
+            result.textContent = 'Testing /health...';
+            
+            try {
+                const response = await fetch('http://localhost:5000/health');
+                const data = await response.json();
+                result.textContent = '✅ Success!\n' + JSON.stringify(data, null, 2);
+            } catch (error) {
+                result.textContent = '❌ Error: ' + error.message;
+            }
+        }
+        
+        async function testChat() {
+            const result = document.getElementById('result');
+            result.textContent = 'Testing /chat without message...';
+            
+            try {
+                const response = await fetch('http://localhost:5000/chat', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({})
+                });
+                const data = await response.json();
+                result.textContent = 'Response:\n' + JSON.stringify(data, null, 2);
+            } catch (error) {
+                result.textContent = '❌ Error: ' + error.message;
+            }
+        }
+        
+        async function sendTestMessage() {
+            await sendMessage('hello');
+        }
+        
+        async function sendCustomMessage() {
+            const msg = document.getElementById('testMessage').value;
+            if (msg) await sendMessage(msg);
+        }
+        
+        async function sendMessage(message) {
+            const result = document.getElementById('result');
+            result.textContent = `Sending: "${message}"...`;
+            
+            try {
+                const response = await fetch('http://localhost:5000/chat', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({message: message})
+                });
+                const data = await response.json();
+                result.textContent = '✅ Response:\n' + JSON.stringify(data, null, 2);
+            } catch (error) {
+                result.textContent = '❌ Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

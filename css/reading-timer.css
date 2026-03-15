@@ -1,0 +1,192 @@
+/* ===== READING TIMER STYLES ===== */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    z-index: 10008;
+    transition: width 0.3s ease;
+}
+
+.nudge-container {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 350px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    z-index: 10007;
+    display: none;
+    animation: nudgeSlideIn 0.3s ease;
+    border-left: 4px solid #f59e0b;
+    overflow: hidden;
+}
+
+.nudge-container.show {
+    display: block;
+}
+
+@keyframes nudgeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.nudge-content {
+    padding: 20px;
+    position: relative;
+}
+
+.nudge-icon {
+    width: 40px;
+    height: 40px;
+    background: #fef3c7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.nudge-icon i {
+    font-size: 20px;
+    color: #f59e0b;
+}
+
+.nudge-message {
+    font-size: 15px;
+    color: #1f2937;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.nudge-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.nudge-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.nudge-btn-primary {
+    background: #f59e0b;
+    color: white;
+}
+
+.nudge-btn-primary:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+}
+
+.nudge-btn-secondary {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.nudge-btn-secondary:hover {
+    background: #e5e7eb;
+}
+
+.nudge-btn-link {
+    background: transparent;
+    color: #6b7280;
+    text-decoration: underline;
+    padding: 8px 0;
+}
+
+.nudge-btn-link:hover {
+    color: #4b5563;
+}
+
+.nudge-timer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #6b7280;
+    padding-top: 10px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.nudge-timer i {
+    color: #f59e0b;
+}
+
+.simplified-text {
+    background-color: #fef3c7;
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #f59e0b;
+    margin: 15px 0;
+    animation: highlightPulse 2s ease;
+}
+
+@keyframes highlightPulse {
+    0%, 100% { background-color: #fef3c7; }
+    50% { background-color: #ffedd5; }
+}
+
+.simplified-badge {
+    display: inline-block;
+    background: #f59e0b;
+    color: white;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 30px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.original-text-toggle {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #f59e0b;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* ADHD mode adjustments */
+body.adhd-mode .nudge-container {
+    bottom: 200px;
+    left: 20px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .nudge-container {
+        width: calc(100% - 40px);
+        left: 20px;
+        bottom: 20px;
+    }
+    
+    .nudge-actions {
+        flex-direction: column;
+    }
+    
+    .nudge-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}  

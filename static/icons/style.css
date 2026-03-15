@@ -1,0 +1,217 @@
+/* Import dyslexia friendly font */
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600&display=swap');
+
+body{
+font-family: "Lexend", Arial;
+background:#f4f6f8;
+color:#222;
+margin:0;
+padding:0;
+line-height:1.8;
+letter-spacing:0.05em;
+}
+
+/* Header */
+
+header{
+text-align:center;
+padding:30px;
+background:#4a90e2;
+color:white;
+}
+
+header h1{
+font-size:38px;
+margin-bottom:5px;
+}
+
+/* Upload Section */
+
+.upload-section{
+text-align:center;
+padding:40px;
+}
+
+.upload-box{
+display:inline-block;
+padding:20px 40px;
+border:2px dashed #4a90e2;
+border-radius:12px;
+background:white;
+cursor:pointer;
+font-size:20px;
+transition:0.3s;
+}
+
+.upload-box:hover{
+background:#eef6ff;
+}
+
+.upload-box input{
+display:none;
+}
+
+/* Feature Buttons */
+
+.features{
+margin-top:30px;
+}
+
+.feature-btn{
+margin:10px;
+padding:12px 25px;
+font-size:16px;
+border:none;
+border-radius:8px;
+background:#4a90e2;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.feature-btn:hover{
+background:#2f6fd1;
+}
+
+/* Reader Section */
+
+.reader{
+max-width:800px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.reader h2{
+font-size:26px;
+margin-bottom:20px;
+}
+
+/* Simplified Text */
+
+.simplified-text{
+font-size:20px;
+padding-left:20px;
+}
+
+.simplified-text li{
+margin-bottom:18px;
+}
+
+/* Footer */
+
+footer{
+text-align:center;
+margin-top:40px;
+padding:20px;
+background:#eee;
+font-size:14px;
+}
+
+/* Focus Mode */
+
+body.focus-mode{
+background:#fff8dc;
+}
+
+body.focus-mode .reader{
+font-size:22px;
+}
+
+/* Dyslexia Color Overlay */
+
+body.dyslexia-color{
+background:#fdf6e3;
+}
+body{
+
+font-family: Arial, sans-serif;
+background:#f5f6fa;
+line-height:1.8;
+letter-spacing:0.05em;
+margin:0;
+}
+
+header{
+
+text-align:center;
+background:#4a90e2;
+color:white;
+padding:25px;
+
+}
+
+.container{
+
+width:70%;
+margin:auto;
+padding:30px;
+
+}
+
+button{
+
+padding:12px 20px;
+margin:10px;
+border:none;
+border-radius:8px;
+background:#4a90e2;
+color:white;
+font-size:16px;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#3578d4;
+
+}
+
+#reader{
+
+margin-top:30px;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+
+}
+
+ul{
+
+font-size:20px;
+
+}
+
+li{
+
+margin-bottom:15px;
+
+}
+
+/* Focus Mode */
+
+.focus{
+
+background:#fff8dc;
+font-size:24px;
+
+}
+
+.focus-mode {
+    background-color: #111;
+    color: white;
+}
+
+.focus-box {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    font-size: 20px;
+    line-height: 1.8;
+    background: #ffffcc;
+}

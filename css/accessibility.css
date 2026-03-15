@@ -1,0 +1,145 @@
+/* Accessibility Styles - Applied Globally */
+@import url('https://fonts.googleapis.com/css2?family=Open+Dyslexic&display=swap');
+
+/* ========== DYSLEXIA PROFILE ========== */
+/* Apply to EVERYTHING on every page */
+body.dyslexia-profile,
+body.dyslexia-profile * {
+    font-family: 'OpenDyslexic', 'Comic Sans MS', 'Lexie Readable', Arial, sans-serif !important;
+    letter-spacing: 0.12em !important;
+    word-spacing: 0.16em !important;
+    line-height: 1.8 !important;
+}
+
+/* Background for dyslexia mode */
+body.dyslexia-profile {
+    background: #fef9e7 !important;
+}
+
+/* All containers */
+body.dyslexia-profile .dashboard,
+body.dyslexia-profile .main-content,
+body.dyslexia-profile .sidebar,
+body.dyslexia-profile .container,
+body.dyslexia-profile .card,
+body.dyslexia-profile .branch-card,
+body.dyslexia-profile .subject-card,
+body.dyslexia-profile .semester-card,
+body.dyslexia-profile .note-card,
+body.dyslexia-profile .note-container,
+body.dyslexia-profile .settings-container,
+body.dyslexia-profile .auth-box,
+body.dyslexia-profile .chat-container {
+    background: #fffef7 !important;
+    color: #2c3e50 !important;
+}
+
+/* Headings */
+body.dyslexia-profile h1,
+body.dyslexia-profile h2,
+body.dyslexia-profile h3,
+body.dyslexia-profile h4 {
+    color: #4f46e5 !important;
+    border-left: 4px solid #6366f1 !important;
+    padding-left: 20px !important;
+}
+
+/* Highlighted text */
+body.dyslexia-profile strong,
+body.dyslexia-profile b {
+    color: #6366f1 !important;
+    background: #e0e7ff !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+}
+
+/* ========== ADHD PROFILE ========== */
+/* Hide sidebar */
+body.adhd-profile .sidebar {
+    display: none !important;
+}
+
+body.adhd-profile .main-content {
+    margin-left: 0 !important;
+    padding: 20px !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+/* Make grids single column */
+body.adhd-profile .branches-grid,
+body.adhd-profile .subjects-grid,
+body.adhd-profile .notes-grid,
+body.adhd-profile .semesters-grid {
+    grid-template-columns: 1fr !important;
+    display: block !important;
+}
+
+body.adhd-profile .branch-card,
+body.adhd-profile .subject-card,
+body.adhd-profile .semester-card,
+body.adhd-profile .note-card {
+    width: 100% !important;
+    margin-bottom: 15px !important;
+}
+
+/* Hide distracting elements */
+body.adhd-profile .navbar,
+body.adhd-profile .footer,
+body.adhd-profile .ad-banner {
+    display: none !important;
+}
+
+/* Chunk content */
+body.adhd-profile .content-chunk,
+body.adhd-profile .note-content > p {
+    background: #f8f9fa !important;
+    border-left: 4px solid #6366f1 !important;
+    padding: 15px !important;
+    margin: 15px 0 !important;
+    border-radius: 0 8px 8px 0 !important;
+}
+
+/* Focus ruler */
+.focus-ruler {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: rgba(99, 102, 241, 0.1);
+    pointer-events: none;
+    transform: translateY(-50%);
+    border-top: 3px solid #6366f1;
+    border-bottom: 3px solid #6366f1;
+    z-index: 9999;
+    display: none;
+}
+
+body.adhd-profile .focus-ruler.active {
+    display: block !important;
+}
+
+/* ========== HIGH CONTRAST MODE ========== */
+body.high-contrast,
+body.high-contrast * {
+    background: #000000 !important;
+    color: #ffff00 !important;
+    border-color: #ffff00 !important;
+}
+
+body.high-contrast a {
+    color: #ff00ff !important;
+}
+
+body.high-contrast button {
+    background: #ffff00 !important;
+    color: #000000 !important;
+}
+
+/* ========== TEXT SIZE ========== */
+body.text-size-small * { font-size: 80% !important; }
+body.text-size-medium * { font-size: 100% !important; }
+body.text-size-large * { font-size: 120% !important; }
+body.text-size-xlarge * { font-size: 150% !important; }
+body.text-size-xxlarge * { font-size: 180% !important; }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connection Test</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        button { padding: 10px; margin: 5px; cursor: pointer; }
+        .success { background: #4CAF50; color: white; padding: 10px; }
+        .error { background: #f44336; color: white; padding: 10px; }
+        #result { margin-top: 20px; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h2>🔌 Python Server Connection Test</h2>
+    
+    <button onclick="testConnection()">Test Connection</button>
+    <button onclick="testHealth()">Test /health</button>
+    <button onclick="testChat()">Test /chat (will fail - normal)</button>
+    
+    <div id="result"></div>
+<!-- Voice Agent -->
+<script src="js/voice-agent.js"></script>
+    <script>
+        async function testConnection() {
+            const result = document.getElementById('result');
+            result.innerHTML = 'Testing connection...';
+            
+            try {
+                const response = await fetch('http://localhost:5000/');
+                const text = await response.text();
+                result.innerHTML = `<div class="success">✅ SUCCESS!<br>Response: ${text}</div>`;
+            } catch (error) {
+                result.innerHTML = `<div class="error">❌ FAILED!<br>Error: ${error.message}</div>`;
+            }
+        }
+        
+        async function testHealth() {
+            const result = document.getElementById('result');
+            result.innerHTML = 'Testing /health...';
+            
+            try {
+                const response = await fetch('http://localhost:5000/health');
+                const data = await response.json();
+                result.innerHTML = `<div class="success">✅ SUCCESS!<br>Response: ${JSON.stringify(data)}</div>`;
+            } catch (error) {
+                result.innerHTML = `<div class="error">❌ FAILED!<br>Error: ${error.message}</div>`;
+            }
+        }
+        
+        async function testChat() {
+            const result = document.getElementById('result');
+            result.innerHTML = 'Testing /chat (should fail)...';
+            
+            try {
+                const response = await fetch('http://localhost:5000/chat');
+                result.innerHTML = `<div class="error">❌ This should fail - /chat doesn't exist yet!</div>`;
+            } catch (error) {
+                result.innerHTML = `<div class="success">✅ Correct! /chat doesn't exist yet. Next we'll add it.</div>`;
+            }
+        }
+    </script>
+</body>
+</html>
